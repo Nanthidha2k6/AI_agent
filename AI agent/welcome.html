@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome | AI Task Scheduler</title>
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:'Segoe UI', Arial, sans-serif;
+  background:linear-gradient(-45deg,#667eea,#764ba2,#43cea2,#185a9d);
+  background-size:400% 400%;
+  animation:bgMove 12s ease infinite;
+  overflow:hidden;
+}
+
+@keyframes bgMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+.card{
+  text-align:center;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(14px);
+  padding:60px 70px;
+  border-radius:30px;
+  color:white;
+  box-shadow:0 30px 70px rgba(0,0,0,0.45);
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+
+h1{
+  font-size:40px;
+  margin-bottom:10px;
+  letter-spacing:1px;
+}
+
+#typing{
+  font-size:20px;
+  min-height:30px;
+  margin-bottom:40px;
+  opacity:0.9;
+}
+
+button{
+  padding:16px 50px;
+  font-size:18px;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  box-shadow:0 0 20px rgba(0,198,255,0.7);
+  animation:pulse 2s infinite;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 35px rgba(0,198,255,1);
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 20px rgba(0,198,255,0.6)}
+  50%{box-shadow:0 0 40px rgba(0,198,255,1)}
+  100%{box-shadow:0 0 20px rgba(0,198,255,0.6)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>📘 AI Task Scheduler</h1>
+  <div id="typing"></div>
+  <button onclick="startApp()">Start Planning</button>
+</div>
+
+<script>
+const text = "Plan smart. Study better. Achieve more.";
+let index = 0;
+
+function typeEffect(){
+  if(index < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeEffect, 70);
+  }
+}
+typeEffect();
+
+function startApp(){
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<style>
+body{
+  background: linear-gradient(135deg,#43cea2,#185a9d);
+  font-family: Arial;
+}
+.box{
+  width:350px;
+  margin:120px auto;
+  background:white;
+  padding:30px;
+  border-radius:10px;
+}
+input,button{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+button{
+  background:#185a9d;
+  color:white;
+  border:none;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Login</h2>
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+  <button onclick="login()">Login</button>
+  <p><a href="signup.html">Create new account</a></p>
+</div>
+
+<script>
+function login(){
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+
+  const su = localStorage.getItem("username");
+  const sp = localStorage.getItem("password");
+
+  if(u === su && p === sp){
+    // ✅ login success → dashboard
+    window.location.href = "dashboard.html";
+  } else {
+    alert("Wrong username or password");
+  }
+}
+</script>
+
+</body>
+</html>
